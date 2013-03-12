@@ -41,6 +41,10 @@ def q2aResponse(request):
                 answer_string = form_input.cleaned_data['answer']
 
                 return render_to_response('q2-a-response.html', {'answer_string':answer_string}, context_instance=RequestContext(request))
+                
+def q2b(request):
+
+    return render_to_response('q2-b.html', {}, context_instance=RequestContext(request))
     
 def result(request):
 

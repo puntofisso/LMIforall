@@ -24,12 +24,14 @@ def page(request):
 def q1(request):
     #Test DB Model
     
-    socs_list = Socs.objects.all()
+    #socs_list = Socs.objects.all()
 
-    return render_to_response('q1.html', {'socs_list':socs_list}, context_instance=RequestContext(request))
+    return render_to_response('q1.html', {}, context_instance=RequestContext(request))
     
 def q2a(request):
     the_form = q2a_form()
+    
+    socs_list = Socs.objects.all()
 
     return render_to_response('q2-a.html', {'the_form':the_form}, context_instance=RequestContext(request))
     
@@ -47,6 +49,8 @@ def q2aResponse(request):
                 
                 
                 #Search DB for Career choices
+                
+                socs_list = Socs.objects.filter(title=answer_string)
 
                 return render_to_response('q2-a-response.html', {'answer_string':answer_string}, context_instance=RequestContext(request))
                 
@@ -57,6 +61,8 @@ def q2b(request):
 def q3a(request):
 
    #search DB for Nesscary jobs
+   
+   
 
     return render_to_response('q3-a.html', {}, context_instance=RequestContext(request))
     

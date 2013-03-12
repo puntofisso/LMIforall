@@ -18,7 +18,9 @@
   	    	<h2>You said: "{{answer_string}}"</h2>
   	    	<h2>Is it one of these?</h2>
   	    	<ul>
-  	    		<li>Doctor</li>
+  	    		{% for reponse in response_list %}
+  	    			<li>{{response}}</li>
+  	    		{% endfor %}
   	    	<ul>
   	    </div>
   	    	

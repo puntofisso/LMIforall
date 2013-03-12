@@ -1,0 +1,13 @@
+*.DS_store
+*.pyc
+*.pyc
+
+manage.py
+
+project-settings/__init__.py
+
+project-settings/settings.py
+
+project-settings/urls.py
+
+project-settings/wsgi.py

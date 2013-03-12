@@ -78,7 +78,8 @@ def q3b(request):
     
 def q3bResponse(request):
 
-    return render_to_response('q3-b-response.html', {}, context_instance=RequestContext(request))
+
+    return render_to_response('q2-a-response.html', {}, context_instance=RequestContext(request))
     
 def result(request):
 

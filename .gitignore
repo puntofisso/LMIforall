@@ -11,3 +11,5 @@ project-settings/settings.py
 project-settings/urls.py
 
 project-settings/wsgi.py
+
+models.py

@@ -14,7 +14,7 @@
   	    
   	    
   	    {% block content %}
-  	    <div id="Q1">
+  	    <div id="Q1" class="row">
   	    <h2>Do you know what you want to do?</h2>
   	    	<p>
   	      		<button class="btn btn-large btn-primary" type="button">Yes!</button>
@@ -22,7 +22,32 @@
   	    	</p>
   	    </div>
   	    
+  	    <div id="Q2-a" class="row">
+  	    	<h2>Great! What is it?</h2>
+  	    	
+  	    	<form>
+  	    	  <fieldset>
+  	    	    <input type="text" placeholder="Type something…">
+  	    	  </fieldset>
+  	    	</form>
+  	    </div>
   	    
+  	    <div id="Q2-a-response" class="row">
+  	    	<h2>Let me think about that...</h2>
+  	    	<h2>Is it one of these?</h2>
+  	    	<ul>
+  	    		<li>Doctor</li>
+  	    	<ul>
+  	    </div>
+  	    
+  	    <div id="Q2-b" class="row">
+  	    </div>
+  	    
+  	    <div id="Result" class="row">
+  	    <h2>So, you want to be a Doctor?</h2>
+  	    <h3>Here is how I think you would get there:</h3>
+  	    
+  	    </div>
   	    	
     
     	{% endblock %}

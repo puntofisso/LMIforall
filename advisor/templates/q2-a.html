@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Advisor{% endblock %}
+  	          
+  	           {% block nav %}
+  	          	<li class="active"><a href="/">Advisor - Question 2</a></li>
+  	          {% endblock %}
+  	          
+  	          
+  	          {% block ui %}
+
+  	          {% endblock %}
+
+  	    
+  	    
+  	    {% block content %}
+  	    <div id="Q2-a" class="row">
+  	    	<h2>Great! What is it?</h2>
+  	    	
+  	    	<form action="/q2ar/" method="POST">
+  	    	{% csrf_token %}
+  	    	  <fieldset>
+  	    	  	{{ the_form }}
+  	    	  </fieldset>
+  	    	</form>
+  	    </div>
+  	    	
+    
+    	{% endblock %}
+    
+     {% block modals %}
+   
+
+    
+    
+    {% endblock %}
+    
+    {% block pageScripts %}
+    <script type="text/javascript">
+
+    </script>
+    {% endblock %}

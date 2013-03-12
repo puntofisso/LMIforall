@@ -17,6 +17,7 @@
   	    <div id="Q2-a" class="row">
   	    	<h2>Great! What is it?</h2>
   	    	
+  	    	
   	    	<form action="/q2ar/" method="POST">
   	    	{% csrf_token %}
   	    	  <fieldset>
@@ -38,6 +39,8 @@
     
     {% block pageScripts %}
     <script type="text/javascript">
-			 $(document).ready(function() { $("#id_answer").select2(); });
+			 $(document).ready(function() { 
+			 $("#id_answer").select2({ width: 'resolve' });   
+			 });
     </script>
     {% endblock %}

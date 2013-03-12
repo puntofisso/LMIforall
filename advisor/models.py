@@ -43,3 +43,13 @@ class SocsSkills(models.Model):
     skill_level_rank = models.IntegerField(null=True, blank=True)
     class Meta:
         db_table = 'socs_skills'
+
+class Ess(models.Model):
+    code = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=110L, blank=True)
+    percssv = models.FloatField(null=True, db_column='percSSV', blank=True) # Field name made lowercase.
+    perchtf = models.FloatField(null=True, db_column='percHTF', blank=True) # Field name made lowercase.
+    perchtfisssv = models.FloatField(null=True, db_column='percHTFisSSV', blank=True) # Field name made lowercase.
+    reliability = models.IntegerField(null=True, blank=True)
+    class Meta:
+        db_table = 'ess'

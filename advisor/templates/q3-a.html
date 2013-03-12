@@ -3,7 +3,7 @@
 {% block title %}Advisor{% endblock %}
   	          
   	           {% block nav %}
-  	          	<li class="active"><a href="/">Advisor - Question 2</a></li>
+  	          	<li class="active"><a href="/">Advisor - Question 1</a></li>
   	          {% endblock %}
   	          
   	          
@@ -14,17 +14,17 @@
   	    
   	    
   	    {% block content %}
-  	    <div id="Q2-a" class="row">
-  	    	<h2>Great! What is it?</h2>
-  	    	
-  	    	<form action="/q2ar/" method="POST">
-  	    	{% csrf_token %}
-  	    	  <fieldset>
-  	    	  	{{ the_form }}
-  	    	  	<button type="submit" class="btn">Submit</button>
-  	    	  </fieldset>
-  	    	</form>
+  	    <div id="Q2-b" class="row">
+  	    <div class="hero-unit">
+  	    <p>Here's come choices which seem promising in the future:</p>
+  	    <ul>
+  	    	{% for ess in ess_list %}
+  	    		<li>{{ ess.title }}</li>
+  	    	{% endfor %}
+  	    </ul>
   	    </div>
+  	    </div>
+  	    
   	    	
     
     	{% endblock %}
@@ -38,6 +38,6 @@
     
     {% block pageScripts %}
     <script type="text/javascript">
-			 $(document).ready(function() { $("#id_answer").select2(); });
+
     </script>
     {% endblock %}

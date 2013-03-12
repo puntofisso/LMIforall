@@ -12,10 +12,16 @@ import datetime, math
 
 from django import forms
 
+from django.forms import ModelForm
+
 from advisor.models import *
 
+class MyModelChoiceField(forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return obj.title
+
 class q2a_form(forms.Form):
-	answer = forms.CharField(max_length=100)
+	answer = MyModelChoiceField(queryset=Socs.objects.all())
 
 def page(request):
 
@@ -62,9 +68,9 @@ def q3a(request):
 
    #search DB for Nesscary jobs
    
-   
+   ess_list = Ess.objects.filter(reliability=3)
 
-    return render_to_response('q3-a.html', {}, context_instance=RequestContext(request))
+   return render_to_response('q3-a.html', {'ess_list':ess_list}, context_instance=RequestContext(request))
     
 def q3b(request):
 

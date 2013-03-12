@@ -15,13 +15,31 @@
   	    
   	    {% block content %}
   	    <div id="Q2-a-response" class="row">
-  	    	<h2>You said: "{{answer_string}}"</h2>
-  	    	<h2>Is it one of these?</h2>
+  	    	<h2>You said: "{{answer_string.title}}"</h2>
+  	    	<!--<h2>Is it one of these?</h2>
   	    	<ul>
   	    		{% for reponse in response_list %}
   	    			<li>{{response}}</li>
   	    		{% endfor %}
-  	    	<ul>
+  	    	<ul>-->
+  	    	
+  	    	
+  	    	              
+  	    	             <div class="hero-unit result">     
+  	    	            <!--<a class="btn btn-primary btn-large">
+  	    	                Yes, show me my options
+  	    	            </a>-->
+  	    				<p><!--question in here-->It looks like you're going to need these qualifications</p>
+  	    	            <ul>
+  	    	                <li><input type="checkbox"> Maths GCSE at level B or above</li>
+  	    	                <li><input type="checkbox"> Maths AS at level B or above</li>
+  	    	                <li><input type="checkbox"> Pure Maths GCSE at level A or above</li>
+  	    	                <li><input type="checkbox"> A degree in Pure Maths</li>
+  	    	            </ul>
+  	    	
+  	    	            <p>Statisticians are some of the highest paid people in the UK, they require high level mathematics qualifications.</p>
+  	    	            </div>
+  	    	
   	    </div>
   	    	
     

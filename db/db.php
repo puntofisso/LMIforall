@@ -34,6 +34,7 @@ function parseJSON($url) {
 }
 
 // Enter onetskills
+function enter_onetkills() {
 $url="http://api.lmiforall.org.uk/api/onet/skills";
 $a = parseJSON($url);
 
@@ -44,7 +45,84 @@ foreach ($a as $elem) {
 	$res = mySQLquery($query);
 	print $res;
 }
+}
+
 
 // Enter socs_onetskills
+function enter_socskills() {
+	$query = "SELECT code from socs";
+	$res = mySQLquery($query);
+	$socs = array();
+	while($row = mysql_fetch_assoc( $res )) {
+		$code = $row['code'];
+		$socs[] = $code;
+	}
 
+	foreach ($socs as $soc) {
+		
+		// initial population
+		//$querysoc = "REPLACE INTO socs_skills (`code`) VALUES ($soc);";
+		//mySQLquery($querysoc);
+
+		// query skills levels
+		$levels = parseJSON("http://api.lmiforall.org.uk/api/onet/levels/$soc");
+		// query skills importance
+		$importance = parseJSON("http://api.lmiforall.org.uk/api/onet/importance/$soc");
+
+		
+
+		$levels_skills = $levels['skills'];	
+		$levels_importance = $importance['skills'];
+
+
+
+		for ($i=0;$i<10;$i++) {
+			$thislevel = $levels_skills[$i];
+			$thisimportance = $levels_importance[$i];
+			$name = $thislevel['name'];
+			$skill_importance = $thisimportance['score'];	
+			$skill_importance_rank = $thisimportance['rank'];
+			$skill_level = $thislevel['score'];
+			$skill_level_rank = $thislevel['rank'];
+
+			$insert = "INSERT INTO socs_skills VALUES('$soc','$name',$skill_importance,$skill_importance_rank,$skill_level,$skill_level_rank);";
+			$csv = "'$soc','$name',$skill_importance,$skill_importance_rank,$skill_level,$skill_level_rank\n";
+			//mySQLquery($insert);
+			print $csv;
+		}
+
+	}
+}
+
+
+function create_ess() {
+	$query = "SELECT code,title from socs";
+        $res = mySQLquery($query);
+        $socs = array();
+        while($row = mysql_fetch_assoc( $res )) {
+                $code = $row['code'];
+		$title = $row['title'];
+                $socs[$code] = $title;
+        }
+
+        foreach ($socs as $soc => $title) {
+
+                // initial population
+                //$querysoc = "REPLACE INTO socs_skills (`code`) VALUES ($soc);";
+                //mySQLquery($querysoc);
+
+                // query skills levels
+                $ess = parseJSON("http://api.lmiforall.org.uk/api/ess/uk/$soc");
+
+		$code = $ess['soc'];
+		$percSSV = $ess['percentSSV'];
+		$percHTF = $ess['percentHTF'];
+		$percHTFSSV = $ess['percentHTFisSSV'];
+		$reliability = $ess['reliability'];
+
+		print "$code,\"$title\",$percSSV,$percHTF,$percHTFSSV,$reliability\n";
+	}
+}
+//enter_socskills();
+//create_ess();
 ?>
